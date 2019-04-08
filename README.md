@@ -3,10 +3,10 @@ Linux Server - Sports Item Catalog
 This is a Linux Server running the Item Catalog application on Lightsail which can be accessed here http://54.188.72.253.xip.io
 
 ## Instructions for accessing Linux Server
-i. IP address and SSH port for server access: 54.188.72.253:2200
-ii. http://54.188.72.253
-iii. Software installed apache2, postgresql
-iv. Configuration changes
+### i. IP address and SSH port for server access: 54.188.72.253:2200
+### ii. http://54.188.72.253
+### iii. Software installed apache2, postgresql
+### iv. Configuration changes
 - Add SSH port 2200 to Lightsail Firewall (removed port 22 after ssh restart)
 - Configure SSH port 2200, HTTP port 80, and NTP port 123 with UFW
 - SSH config port change from 22 to 2200 in sshd_config, then restart ssh
@@ -20,14 +20,15 @@ iv. Configuration changes
 - Install git
 - Configure PSQL with the appropriate database, user and privileges
 - Configure apache2 with appropriate support for application
-v. Third party resources
+### v. Third party resources
 https://www.vultr.com/docs/how-to-configure-ufw-firewall-on-ubuntu-14-04
 http://www.postgresqltutorial.com/postgresql-python/connect/
 https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql
 
 ## API
 The item catalog has a list of API endpoints available for use which return JSON.
-### Examples
+
+## Examples
 To access the list of Sports:
 ```http://localhost/sports/JSON```
 
