@@ -1,0 +1,4 @@
+*.db
+*.sw*
+*.ignore
+*.pyc
