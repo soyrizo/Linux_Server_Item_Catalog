@@ -20,13 +20,6 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Sports Item Catalog Application"
 
 
-# Connect to Database and create database session
-#engine = create_engine('sqlite:///sportscatalog.db')
-#Base.metadata.bind = engine
-#
-#DBSession = sessionmaker(bind=engine)
-#session = DBSession()
-
 
 # Create anti-forgery state token
 @app.route('/login')
@@ -167,7 +160,7 @@ def gdisconnect():
 # JSON APIs to view Sport Information
 @app.route('/sport/<int:sport_id>/items/JSON')
 def sportSportJSON(sport_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -180,7 +173,7 @@ def sportSportJSON(sport_id):
 
 @app.route('/sport/<int:sport_id>/item/<int:item_id>/JSON')
 def itemItemJSON(sport_id, item_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -191,7 +184,7 @@ def itemItemJSON(sport_id, item_id):
 
 @app.route('/sports/JSON')
 def sportsJSON():
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -204,7 +197,7 @@ def sportsJSON():
 @app.route('/')
 @app.route('/sport/')
 def showSports():
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -215,7 +208,7 @@ def showSports():
 # Create a new sport
 @app.route('/sport/new/', methods=['GET', 'POST'])
 def newSport():
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -234,7 +227,7 @@ def newSport():
 # Edit a sport
 @app.route('/sport/<int:sport_id>/edit/', methods=['GET', 'POST'])
 def editSport(sport_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -255,7 +248,7 @@ def editSport(sport_id):
 # Delete a sport
 @app.route('/sport/<int:sport_id>/delete/', methods=['GET', 'POST'])
 def deleteSport(sport_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -276,7 +269,7 @@ def deleteSport(sport_id):
 @app.route('/sport/<int:sport_id>/')
 @app.route('/sport/<int:sport_id>/item/')
 def showSport(sport_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -290,7 +283,7 @@ def showSport(sport_id):
 # Create a new item item
 @app.route('/sport/<int:sport_id>/item/new/', methods=['GET', 'POST'])
 def newItem(sport_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -311,7 +304,7 @@ def newItem(sport_id):
 
 @app.route('/sport/<int:sport_id>/item/<int:item_id>/edit', methods=['GET', 'POST'])
 def editItem(sport_id, item_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
@@ -335,7 +328,7 @@ def editItem(sport_id, item_id):
 # Delete a item item
 @app.route('/sport/<int:sport_id>/item/<int:item_id>/delete', methods=['GET', 'POST'])
 def deleteItem(sport_id, item_id):
-    engine = create_engine('sqlite:///sportscatalog.db')
+    engine = create_engine('postgresql://catalog:postgres@localhost:5432/catalog')
     Base.metadata.bind = engine
     
     DBSession = sessionmaker(bind=engine)
